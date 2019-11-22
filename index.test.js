@@ -11,7 +11,7 @@ beforeAll(async () => {
   driver = await new Builder().forBrowser("chrome").build();
 });
 
-// afterAll(async () => driver.quit());
+afterAll(async () => driver.quit());
 
 it("access the root link", async () => {
   await driver.get(rootURL);
@@ -79,15 +79,20 @@ it("insert the content", async () => {
       "#root > div.styles_wrapper__3dLt8 > div.styles_inputWrapper__1kPzV > input"
     )
   );
-  let activeLetter;
-  while (
-    (activeLetter = await driver.findElement(
-      By.css('span[test-handle="active-letter"]')
-    ))
-  ) {
-    const letter = await activeLetter.getText();
-    console.log(letter);
-    input.sendKeys(letter);
-    await new Promise(resolve => setTimeout(resolve, 100));
+
+  const arrowSign = "↩";
+  const text = await driver
+    .findElement(By.css('div[test-handle="text"]'))
+    .getText();
+  console.log(text);
+  for (i = 0; i < text.length; i++) {
+    let letter = text[i];
+
+    if (letter === arrowSign) {
+      input.sendKeys(Key.ENTER);
+    } else {
+      input.sendKeys(letter);
+    }
+    await new Promise(resolve => setTimeout(resolve, 10));
   }
 });
