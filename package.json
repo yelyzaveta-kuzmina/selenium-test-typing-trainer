@@ -1,0 +1,18 @@
+{
+  "name": "selenium-test-typing-trainer",
+  "version": "1.0.0",
+  "description": "my first project, which runs automated tests using selenium",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "author": "me",
+  "license": "ISC",
+  "devDependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.5",
+    "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "chromedriver": "^78.0.1"
+  }
+}
