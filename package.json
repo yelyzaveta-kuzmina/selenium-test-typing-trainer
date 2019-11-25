@@ -9,10 +9,13 @@
   "author": "me",
   "license": "ISC",
   "devDependencies": {
-    "selenium-webdriver": "^4.0.0-alpha.5",
-    "jest": "^24.9.0"
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "jest": "^24.9.0",
+    "selenium-webdriver": "^4.0.0-alpha.5"
   },
   "dependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "chromedriver": "^78.0.1"
   }
 }
